@@ -1,3 +1,6 @@
+/**
+ * run before all tests
+ */
 const supertest = require('supertest');
 const defaults = require('superagent-defaults');
 const db = require('../../models');
@@ -5,6 +8,11 @@ const adminJson = require('../../config/admin.json');
 const userJson = require('../data/user.json');
 const app = require('../../app');
 
+/**
+ * make users for testing and return them
+ * @param {String} uniqueSuffix
+ * @returns {Array} array of users with userdata requests as presetted supertest samples
+ */
 module.exports = async (uniqueSuffix) => {
   const request = defaults(supertest(app));
 
@@ -29,6 +37,6 @@ module.exports = async (uniqueSuffix) => {
   return [admin, user, guest];
 };
 
-if (module.parent === null) {
-  module.exports(Math.random()).then(console.log); // eslint-disable-line
-}
+// if (module.parent === null) {
+//   module.exports(Math.random()).then(console.log); // eslint-disable-line
+// }

@@ -1,4 +1,6 @@
-// post controller
+/**
+ *  Express route handlers for post
+ */
 const db = require('../models');
 const settings = require('../config/settings.json');
 const debug = require('debug')('catch');

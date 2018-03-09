@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Module dependencies.
+ * express generated starting file modified to fit ESLint advices
  */
 const app = require('../app');
 const debug = require('debug')('api:server');

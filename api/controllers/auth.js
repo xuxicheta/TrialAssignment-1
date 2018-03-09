@@ -1,3 +1,6 @@
+/**
+ *  Express route handlers for authorization
+ */
 const jwt = require('jsonwebtoken'); // in passport-jwt dependencies
 const db = require('../models');
 const passport = require('../lib/passport');
@@ -5,6 +8,9 @@ const secret = require('../config/jwt.json').secret;
 const debug = require('debug')('catch');
 
 module.exports = {
+  /**
+   * /api/login route
+   */
   async login(req, res) {
     try {
       if (!req.body.username) throw new Error('no username');
@@ -32,7 +38,9 @@ module.exports = {
       debug(err);
     }
   },
-
+  /**
+   * /api/whoami route
+   */
   async whoami(req, res) {
     if (req.user) {
       res.json({
@@ -45,7 +53,9 @@ module.exports = {
       });
     }
   },
-
+  /**
+   * make req.user if authentication was successful
+   */
   authenticate(req, res, next) {
     passport.authenticate('jwt', (err, user) => {
       if (user) req.user = user; // it should does automatically by req.logIn, but it's not

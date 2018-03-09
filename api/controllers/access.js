@@ -1,4 +1,10 @@
+/**
+ *  Express route middleware handlers
+ */
 module.exports = {
+  /**
+   * use for restict users and guests
+   */
   AdminOnly(req, res, next) {
     if (req.user && req.user.role === 2) {
       next();
@@ -8,7 +14,9 @@ module.exports = {
       });
     }
   },
-
+  /**
+   * use for guests
+   */
   AdminAndUsers(req, res, next) {
     if (req.user && (req.user.role === 2 || req.user.role === 1)) {
       next();
@@ -18,7 +26,9 @@ module.exports = {
       });
     }
   },
-
+  /**
+   * use for restict admins and guests
+   */
   UsersOnly(req, res, next) {
     if (req.user && req.user.role === 1) {
       next();

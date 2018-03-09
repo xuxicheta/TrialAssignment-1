@@ -1,3 +1,6 @@
+/**
+ * main database module
+ */
 const mongoose = require('mongoose');
 
 mongoose.Promise = Promise;

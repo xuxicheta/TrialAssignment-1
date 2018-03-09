@@ -1,3 +1,6 @@
+/**
+ * registration JWT strategy in passport.js module
+ */
 const passport = require('passport');
 const db = require('../models');
 const secret = require('../config/jwt.json').secret;
