@@ -1,11 +1,17 @@
 # API
 ### Запуск и тестирование
 Для установки выполнить в папке /api
+
 `npm install`
+
 Для тестирования выполнить в папке /api
+
 `npm test`
+
 Для запуска выполнить в папке /api
+
 `npm start`
+
 ### Используемые зависимости
 body-parser, debug, express, mongoose, passport, passport-jwt
 ##### Для тестирования
