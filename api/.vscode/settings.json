@@ -1,0 +1,11 @@
+{
+  "mocha.files.glob": "**/test/*.test.js",
+  "mocha.sideBarOptions": {
+    "lens": false,
+    "decoration": true,
+    "autoUpdateTime": 5000,
+    "showDebugTestStatus": false
+  },
+  "mocha.logVerbose": false,
+  "mocha.path": "./node_modules/mocha"
+}

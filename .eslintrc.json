@@ -1,0 +1,32 @@
+{
+  "extends": ["plugin:vue/essential", "airbnb-base"],
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+	"plugins": [
+		"vue",
+    "import",
+    "mongodb"
+	],
+	"settings": {
+		"import/resolver": "webpack"
+  },
+  "rules": {
+    "func-names" : "error",
+    "no-param-reassign" :"warn",
+    "indent": ["error", 2],
+    "no-restricted-globals":"warn",
+    "linebreak-style": "warn",
+    "max-len":"off",
+    "no-await-in-loop": "off",
+    "no-restricted-syntax": "off",
+    "prefer-rest-params": "warn",
+    "import/no-extraneous-dependencies": "off",
+    "prefer-destructuring": "off",
+    "no-loop-func": "off",
+    "no-prototype-builtins":"off",
+    "no-continue": "off"
+  }
+}
