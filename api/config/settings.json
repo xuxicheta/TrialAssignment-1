@@ -1,3 +1,5 @@
 {
-  "pageSize": 10
+  "pageSize": 10,
+  "port": 3000,
+  "cors": ["development"]
 }
