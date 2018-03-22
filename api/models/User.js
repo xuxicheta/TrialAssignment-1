@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 const crypto = require('crypto');
 
-const UserSchema = mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: true,
@@ -52,6 +52,8 @@ UserSchema.methods.encryptPassword = function encryptPassword(password) {
 };
 
 if (!UserSchema.options.toObject) UserSchema.options.toObject = {};
+
+UserSchema.options.toObject.versionKey = false;
 /**
  * mongoose transform
  * slightly modify object from MondoDB, remove _id, __v, hash, salt fields, add id field
@@ -59,7 +61,6 @@ if (!UserSchema.options.toObject) UserSchema.options.toObject = {};
 UserSchema.options.toObject.transform = function transform(doc, ret) {
   ret.id = ret._id; // eslint-disable-line
   delete ret._id; // eslint-disable-line
-  delete ret.__v; // eslint-disable-line
   delete ret.hash;
   delete ret.salt;
   return ret;

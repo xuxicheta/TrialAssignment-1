@@ -21,7 +21,6 @@ const connectionString = [
   '/',
   conn.database,
 ].join('');
-console.log(connectionString);
 
 mongoose.Promise = Promise;
 mongoose.connect(connectionString);

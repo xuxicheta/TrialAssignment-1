@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
-const PostSchema = mongoose.Schema({
+const PostSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -24,10 +24,10 @@ const PostSchema = mongoose.Schema({
 });
 
 if (!PostSchema.options.toObject) PostSchema.options.toObject = {};
+PostSchema.options.toObject.versionKey = false;
 PostSchema.options.toObject.transform = function transform(doc, ret) {
   ret.id = ret._id; // eslint-disable-line
   delete ret._id; // eslint-disable-line
-  delete ret.__v; // eslint-disable-line
   return ret;
 };
 
